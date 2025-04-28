@@ -80,7 +80,7 @@ export default function Navbar() {
                 </button>
                 <Link href="/">
                   {/* <h2 className="text-2xl font-bold text-primary">Rise Together</h2> */}
-                  <Image src={logo} alt="logo" width={200} height={100} />
+                  <Image src={logo} alt="logo" width={150} height={100} />
                 </Link>
               </div>
               <div className="flex justify-between pt-2">
@@ -152,7 +152,7 @@ export default function Navbar() {
         </HeaderDrawer>
         
         <Link href="/" className="text-primary text-2xl font-bold justify-self-end md:justify-self-center">
-        <Image src={logo} alt="logo" width={200} height={100} />
+        <Image src={logo} alt="logo" width={150} height={100} />
         </Link>
         
         <div className="flex items-center justify-self-end gap-3">

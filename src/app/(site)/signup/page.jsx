@@ -143,11 +143,11 @@ const Page = () => {
                                     </div>
                                 </div>
                                 <CardFooter className="px-0 pt-6">
-                                    <Button type="submit" className="w-full bg-primary text-white">
+                                    <Button type="submit" className="w-full bg-primary text-white cursor-pointer">
                                         Create Account
                                     </Button>
                                 </CardFooter>
-                                <p className='text-center mt-2'>Already have an account? Please Sign <Link className='text-primary font-semibold' href="/signin">Here</Link></p>
+                                <p className='text-center mt-2'>Already have an account? <Link className='text-primary font-semibold' href="/signin">Sign in here</Link></p>
                             </form>
                         </CardContent>
                     </Card>

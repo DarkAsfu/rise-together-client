@@ -30,7 +30,7 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
+  --color-secondary: #ff7468;
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: #1B8271;
   --color-popover-foreground: var(--popover-foreground);

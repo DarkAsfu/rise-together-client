@@ -111,7 +111,7 @@ const Page = () => {
                                     </div>
                                 </div>
                                 <CardFooter className="px-0 pt-6">
-                                    <Button type="submit" className="w-full bg-primary text-white">
+                                    <Button type="submit" className="w-full bg-primary text-white cursor-pointer">
                                         Sign In
                                     </Button>
                                 </CardFooter>
