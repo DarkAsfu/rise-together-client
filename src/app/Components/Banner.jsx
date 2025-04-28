@@ -44,7 +44,7 @@ const Banner = () => {
         delay: 5000,
         disableOnInteraction: false,
       }}
-      className="mySwiper [&_.swiper-button-next]:text-white [&_.swiper-button-next]:bg-primary/60 [&_.swiper-button-next]:rounded-full [&_.swiper-button-next]:p-6 [&_.swiper-button-next]:after:!text-[16px] [&_.swiper-button-next]:after:!text-white [&_.swiper-button-prev]:text-white [&_.swiper-button-prev]:bg-primary/60 [&_.swiper-button-prev]:rounded-full [&_.swiper-button-prev]:p-6 [&_.swiper-button-prev]:after:!text-[16px] [&_.swiper-button-prev]:after:!text-white"
+      className="mySwiper [&_.swiper-button-next]:text-white [&_.swiper-button-next]:bg-primary/60 [&_.swiper-button-next]:rounded-full [&_.swiper-button-next]:p-6 [&_.swiper-button-next]:after:!text-[16px] [&_.swiper-button-next]:after:!text-white [&_.swiper-button-prev]:text-white [&_.swiper-button-prev]:bg-primary/60 [&_.swiper-button-prev]:rounded-full [&_.swiper-button-prev]:p-6 [&_.swiper-button-prev]:after:!text-[16px] [&_.swiper-button-prev]:after:!text-white -mt-22"
     >
       {slideData.map((slide, index) => (
         <SwiperSlide key={index}>
@@ -55,13 +55,13 @@ const Banner = () => {
                 src={slide.bgImage}
                 alt={slide.title}
                 fill
-                className="object-cover mix-blend-color-burn"
+                className="object-cover mix-blend-color-burn grayscale"
               />
             </div>
             {/* Dark overlay */}
             <div className="absolute inset-0 bg-[#003b4a] opacity-80"></div>
             {/* Text content */}
-            <div className="absolute inset-0 flex flex-col justify-center text-white p-8 max-w-7xl mx-auto">
+            <div className="absolute inset-0 flex flex-col justify-center text-white  max-w-7xl mx-auto">
               <h2 className="text-[14px] md:text-[35px] font-bold uppercase tracking-widest text-secondary">
                 {slide.title}
               </h2>

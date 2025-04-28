@@ -47,7 +47,7 @@ export default function Navbar() {
   return (
     <div
       className={`sticky top-0 z-50 ${
-        isScrolled ? "bg-white" : "bg-transparent border-b"
+        isScrolled ? "bg-white" : "bg-transparent"
       } transition-colors duration-300 relative`}
     >
       <header
@@ -156,7 +156,7 @@ export default function Navbar() {
         </Link>
         
         <div className="flex items-center justify-self-end gap-3">
-          <Link href="/signup" className="hidden md:block text-white px-10 py-2 rounded-full bg-primary hover:bg-transparent border-1 hover:text-primary font-semibold transition-all">
+          <Link href="/signup" className="hidden md:block text-white px-10 py-2 rounded-full bg-primary hover:bg-transparent border-1 border-primary hover:text-primary font-semibold transition-all">
             Sign Up
           </Link>
           <Link href="/" className="hidden md:block group relative cursor-pointer p-2 w-40 border bg-white rounded-full overflow-hidden text-black text-center font-semibold">
