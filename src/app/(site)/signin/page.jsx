@@ -7,33 +7,24 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import Image from "next/image";
-import signupimg from "../../../../public/signup.jpeg";
+import signinimg from "../../../../public/signin.png";
 import Swal from 'sweetalert2';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const Page = () => {
+    const router = useRouter();
     const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-    const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
-    const password = watch("password");
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const onSubmit = async (data) => {
-        if (data.password !== data.confirmPassword) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Passwords do not match!'
-            });
-            return;
-        }
-
         try {
-            const response = await fetch(`${baseUrl}/auth/register`, {
+            const response = await fetch(`${baseUrl}/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    name: data.name,
                     email: data.email,
                     password: data.password
                 })
@@ -41,61 +32,51 @@ const Page = () => {
 
             if (response.ok) {
                 const responseData = await response.json();
+                // Store the token in localStorage
+                localStorage.setItem('token', responseData.token);
                 console.log(responseData);
+                
                 Swal.fire({
                     icon: 'success',
                     title: 'Success!',
-                    text: responseData.message || 'Registration successful!',
+                    text: responseData.message || 'Login successful!',
                     timer: 2000,
                     showConfirmButton: false
                 });
+                
                 reset(); // Clear form
+                router.push('/'); // Redirect to dashboard after successful login
             } else {
                 const errorData = await response.json();
                 console.log(errorData);
                 Swal.fire({
                     icon: 'error',
-                    title: 'Registration Failed',
-                    text: errorData.message || 'Something went wrong!'
+                    title: 'Login Failed',
+                    text: errorData.message || 'Invalid credentials!'
                 });
             }
         } catch (error) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'An error occurred during registration'
+                text: 'An error occurred during login'
             });
-            console.error('Registration error:', error);
+            console.error('Login error:', error);
         }
     };
 
     return (
         <div className="flex items-center justify-center min-h-screen">
-            <div className="grid lg:grid-cols-2 items-center w-full max-w-[1200px] gap-8 p-2 md:p-8 border-0 xl:border-1 xl:border-t rounded-lg shadow-none xl:shadow-xl">
+            <div className="grid lg:grid-cols-2 items-center w-full max-w-[1200px] gap-8 px-2 md:px-8 border-0 xl:border-1 xl:border-t rounded-lg shadow-none xl:shadow-xl">
                 <div className="">
                     <Card className="w-full">
                         <CardHeader>
-                            <CardTitle className="text-2xl font-bold">Sign Up</CardTitle>
-                            <CardDescription>Create your account to helps other people.</CardDescription>
+                            <CardTitle className="text-2xl font-bold">Sign In</CardTitle>
+                            <CardDescription>Welcome back! Please login to your account.</CardDescription>
                         </CardHeader>
                         <CardContent>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="grid w-full gap-4">
-                                    <div className="grid gap-2">
-                                        <Label htmlFor="name">Full Name</Label>
-                                        <Input 
-                                            id="name"
-                                            placeholder="Enter your full name"
-                                            {...register("name", { 
-                                                required: "Name is required",
-                                                minLength: {
-                                                    value: 2,
-                                                    message: "Name must be at least 2 characters"
-                                                }
-                                            })}
-                                        />
-                                        {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
-                                    </div>
                                     <div className="grid gap-2">
                                         <Label htmlFor="email">Email</Label>
                                         <Input 
@@ -117,7 +98,7 @@ const Page = () => {
                                         <Input 
                                             id="password"
                                             type="password"
-                                            placeholder="Create a password"
+                                            placeholder="Enter your password"
                                             {...register("password", { 
                                                 required: "Password is required",
                                                 minLength: {
@@ -128,34 +109,21 @@ const Page = () => {
                                         />
                                         {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
                                     </div>
-                                    <div className="grid gap-2">
-                                        <Label htmlFor="confirmPassword">Confirm Password</Label>
-                                        <Input 
-                                            id="confirmPassword"
-                                            type="password"
-                                            placeholder="Confirm your password"
-                                            {...register("confirmPassword", { 
-                                                required: "Please confirm your password",
-                                                validate: value => value === password || "Passwords do not match"
-                                            })}
-                                        />
-                                        {errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword.message}</p>}
-                                    </div>
                                 </div>
                                 <CardFooter className="px-0 pt-6">
                                     <Button type="submit" className="w-full bg-primary text-white">
-                                        Create Account
+                                        Sign In
                                     </Button>
                                 </CardFooter>
-                                <p className='text-center mt-2'>Already have an account? Please Sign <Link className='text-primary font-semibold' href="/signin">Here</Link></p>
+                                <p className='text-center mt-2'>Don't have an account? <Link className='text-primary font-semibold' href="/signup">Sign up here</Link></p>
                             </form>
                         </CardContent>
                     </Card>
                 </div>
                 <div className="hidden lg:flex w-full items-center justify-self-end">
                     <Image
-                        src={signupimg}
-                        alt="Sign up illustration"
+                        src={signinimg}
+                        alt="Sign in illustration"
                         width="100%"
                         height="40%"
                         className="object-cover w-full rounded-xl"

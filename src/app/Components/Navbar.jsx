@@ -1,13 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
-import { ArrowRight, MenuIcon, X } from "lucide-react";
+import { ArrowRight, HandHeart, MenuIcon, X } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useMediaQuery } from "../hooks/use-media-query";
 import { DrawerContent, HeaderDrawer } from "@/components/core/drawer/vaul-header";
-
+import logo from "../../../public/logo.png"
 const featuredCampaigns = [
   {
     id: 1,
@@ -66,12 +66,12 @@ export default function Navbar() {
         >
           <DrawerContent>
             {!isDesktop && (
-              <div className="flex justify-center w-full absolute bottom-1 left-0">
+              <div className="flex justify-center w-full absolute bottom-2 left-0">
                 <div className="w-16 h-[0.30rem] flex-shrink-0 rounded-full bg-gray-600 my-4" />
               </div>
             )}
             <div className="max-w-[94em] xl:mx-auto gap-4 px-2">
-              <div className="flex justify-between items-center align-middle border-b">
+              <div className="flex justify-between items-center align-middle border-b pb-4">
                 <button
                   className="flex justify-start p-2 mb-2 rounded-md dark:bg-white dark:text-black bg-primary text-white"
                   onClick={() => setHeaderOpen(false)}
@@ -79,7 +79,8 @@ export default function Navbar() {
                   <X />
                 </button>
                 <Link href="/">
-                  <h2 className="text-2xl font-bold text-primary">Rise Together</h2>
+                  {/* <h2 className="text-2xl font-bold text-primary">Rise Together</h2> */}
+                  <Image src={logo} alt="logo" width={200} height={100} />
                 </Link>
               </div>
               <div className="flex justify-between pt-2">
@@ -151,7 +152,7 @@ export default function Navbar() {
         </HeaderDrawer>
         
         <Link href="/" className="text-primary text-2xl font-bold justify-self-end md:justify-self-center">
-          Rise Together
+        <Image src={logo} alt="logo" width={200} height={100} />
         </Link>
         
         <div className="flex items-center justify-self-end gap-3">
@@ -164,7 +165,8 @@ export default function Navbar() {
             </span>
             <div className="flex gap-2 text-white z-10 items-center absolute top-0 h-full w-full justify-center translate-x-12 opacity-0 group-hover:-translate-x-1 group-hover:opacity-100 transition-all duration-300">
               <span>Donate Now</span>
-              <ArrowRight size={18} />
+              {/* <ArrowRight size={18} /> */}
+              <HandHeart size={18} />
             </div>
             <div className="absolute top-[40%] left-[12%] h-2 w-2 group-hover:h-full group-hover:w-full rounded-lg bg-primary scale-[1] dark:group-hover:bg-[#e7cb6e] group-hover:bg-primary group-hover:scale-[1.8] transition-all duration-300 group-hover:top-[0%] group-hover:left-[0%]"></div>
           </Link>
