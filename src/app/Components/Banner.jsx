@@ -61,7 +61,7 @@ const Banner = () => {
             {/* Dark overlay */}
             <div className="absolute inset-0 bg-[#003b4a] opacity-80"></div>
             {/* Text content */}
-            <div className="absolute inset-0 flex flex-col justify-center text-white  max-w-7xl mx-auto">
+            <div className="absolute inset-0 flex flex-col justify-center text-white  max-w-7xl mx-auto px-2 xl:px-0">
               <h2 className="text-[14px] md:text-[35px] font-bold uppercase tracking-widest text-secondary">
                 {slide.title}
               </h2>
