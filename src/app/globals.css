@@ -33,6 +33,7 @@
   --color-secondary: #ff7468;
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: #1B8271;
+  --color-heading: #071c35;
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);

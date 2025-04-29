@@ -54,7 +54,7 @@ const Service = () => {
   ]
   return (
     <div
-      className='max-w-7xl mx-auto relative'
+      className=' relative mt-10 md:mt-0'
       style={{
         backgroundImage: `url('/servicebg.png')`, // ✅ direct path
         backgroundSize: 'cover',
@@ -73,7 +73,7 @@ const Service = () => {
           backgroundColor: 'rgba(243, 244, 246, 0.5)' // overlay
         }}
       />
-      <div className='relative z-10 py-20'>
+      <div className='relative z-10 py-20 max-w-7xl mx-auto'>
         <TitleSubTitle
           subTitle={'Services'}
           titleStyle={'text-center'}
@@ -81,9 +81,9 @@ const Service = () => {
           title={'Why Rise Together'}
         />
         {/* <Image src={dashboard} width={80} height={10} alt="icon"/> */}
-        <div className='mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-8 px-2'>
+        <div className='mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 px-2'>
           {services.map((s) => (
-            <div key={s.id} className='group text-center bg-white hover:bg-primary transition-all translate-3 p-10 rounded-2xl'>
+            <div key={s.id} className='group text-center bg-white hover:bg-primary transition-all  p-10 rounded-2xl'>
                 <Image className='mx-auto' src={s.icon} width={60} height={10} alt="icon"/>
                 <div className='border-3 my-3 border-secondary w-16 mx-auto rounded-md group-hover:border-white'></div>
                 <h3 className='text-[#071c35] group-hover:text-white text-[18px]'>{s.title}</h3>
