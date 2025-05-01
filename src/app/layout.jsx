@@ -1,5 +1,6 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import AuthProvider from "./Provider/AuthProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -20,7 +21,9 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
       >
         {/* <h1>Navbar</h1> */}
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
         {/* <h1>Footer</h1> */}
       </body>
     </html>

@@ -11,57 +11,35 @@ import signinimg from "../../../../public/signin.png";
 import Swal from 'sweetalert2';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useAuth } from '@/app/hooks/useAuth';
+
 
 const Page = () => {
     const router = useRouter();
-    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const { login } = useAuth();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const onSubmit = async (data) => {
         try {
-            const response = await fetch(`${baseUrl}/auth/login`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email: data.email,
-                    password: data.password
-                })
+            const response = await login(data.email, data.password);
+            
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: response.message || 'Login successful!',
+                timer: 2000,
+                showConfirmButton: false
             });
-
-            if (response.ok) {
-                const responseData = await response.json();
-                // Store the token in localStorage
-                localStorage.setItem('token', responseData.token);
-                console.log(responseData);
-                
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success!',
-                    text: responseData.message || 'Login successful!',
-                    timer: 2000,
-                    showConfirmButton: false
-                });
-                
-                reset(); // Clear form
-                router.push('/'); // Redirect to dashboard after successful login
-            } else {
-                const errorData = await response.json();
-                console.log(errorData);
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Login Failed',
-                    text: errorData.message || 'Invalid credentials!'
-                });
-            }
+            
+            reset();
+            router.push('/');
         } catch (error) {
+            console.error('Login error:', error);
             Swal.fire({
                 icon: 'error',
-                title: 'Error',
-                text: 'An error occurred during login'
+                title: 'Login Failed',
+                text: error.message || 'Invalid credentials!'
             });
-            console.error('Login error:', error);
         }
     };
 
