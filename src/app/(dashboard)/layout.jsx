@@ -17,7 +17,9 @@ import {
   UserCog,
   Loader2,
   UserRoundCog,
-  UserSquare
+  UserSquare,
+  List,
+  CornerDownLeftIcon
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
@@ -69,6 +71,11 @@ const DashboardLayout = ({ children }) => {
         href: '/dashboard/user-management'
       },
       {
+        label: 'Campaign request',
+        icon: CornerDownLeftIcon,
+        href: '/dashboard/campaign-request'
+      },
+      {
         label: 'Fund Raiser Request',
         icon: UserSquare,
         href: '/dashboard/fund-raiser-request'
@@ -79,6 +86,11 @@ const DashboardLayout = ({ children }) => {
         label: 'Campaigns',
         icon: CalendarCheck,
         href: '/dashboard/campaigns'
+      },
+      {
+        label: 'My Campaigns',
+        icon: List,
+        href: '/dashboard/my-campaigns'
       },
       {
         label: 'Reports',
@@ -167,7 +179,7 @@ const DashboardLayout = ({ children }) => {
             variant='ghost'
             size='icon'
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className='h-10 w-10 border'
+            className='h-10 w-10 border cursor-pointer'
           >
             {isCollapsed ? (
               <ChevronRight size={24} />
