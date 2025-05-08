@@ -11,6 +11,7 @@ import {
   HeaderDrawer
 } from '@/components/core/drawer/vaul-header'
 import logo from '../../../public/logo.png'
+import logo1 from '../../../public/logo1.png'
 import { useAuth } from '../hooks/useAuth'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
@@ -92,7 +93,7 @@ export default function Navbar() {
                   <X />
                 </button>
                 <Link href='/'>
-                  <Image src={logo} alt='logo' width={150} height={100} />
+                  <Image src={isScrolled ? logo : logo1} alt='logo' width={150} height={100} />
                 </Link>
               </div>
               <div className='flex justify-between pt-2'>
@@ -131,6 +132,14 @@ export default function Navbar() {
                       </Link>
                     </li>
                     <li>
+                      <Link
+                        href='/signin'
+                        className='relative flex items-center gap-2 max-w-max after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
+                      >
+                        Sign In
+                      </Link>
+                    </li>
+                    <li>
                       <Link href='/donate'>
                         <Button>Donate Now</Button>
                       </Link>
@@ -146,7 +155,7 @@ export default function Navbar() {
           href='/'
           className='text-primary text-2xl font-bold justify-self-end md:justify-self-center'
         >
-          <Image src={logo} alt='logo' width={150} height={100} />
+          <Image src={isScrolled ? logo : logo1} alt='logo' width={150} height={100} />
         </Link>
 
         <div className='flex items-center justify-self-end gap-3'>
@@ -175,7 +184,7 @@ export default function Navbar() {
           ) : (
             <Link
               href='/signup'
-              className='hidden md:block text-white px-10 py-2 rounded-full bg-primary hover:bg-transparent border-1 border-primary hover:text-primary font-semibold transition-all'
+              className='hidden lg:block text-white px-10 py-2 rounded-full bg-primary hover:bg-transparent border-1 border-primary hover:text-primary font-semibold transition-all'
             >
               Sign Up
             </Link>

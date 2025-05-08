@@ -2,30 +2,21 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
+    Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
+    Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter,
+} from "@/components/ui/dialog";
+import {
+    DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { MoreHorizontal, Search } from "lucide-react";
 import Swal from 'sweetalert2';
 import DashboardTitle from '../DashboardTitle';
 import { Input } from "@/components/ui/input";
 import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
+    Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
 
 const Campaignrequest = () => {
@@ -34,6 +25,14 @@ const Campaignrequest = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [statusFilter, setStatusFilter] = useState('all');
     const [categoryFilter, setCategoryFilter] = useState('all');
+    const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
+    const [selectedCampaign, setSelectedCampaign] = useState(null);
+    const [updateFormData, setUpdateFormData] = useState({
+        title: '',
+        category: '',
+        goal_amount: '',
+        location: '',
+    });
 
     useEffect(() => {
         fetchCampaigns();
@@ -69,12 +68,47 @@ const Campaignrequest = () => {
                 text: `Campaign status updated to ${newStatus} successfully`
             });
         } catch (error) {
-            console.error('Error updating status:', error.response.data.error);
-            const err = error.response.data.error;
+            console.error('Error updating status:', error.response?.data?.error);
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: err
+                text: error.response?.data?.error || 'Failed to update status'
+            });
+        }
+    };
+
+    const handleUpdateClick = (campaign) => {
+        setSelectedCampaign(campaign);
+        setUpdateFormData({
+            title: campaign.title,
+            category: campaign.category,
+            goal_amount: campaign.goal_amount,
+            location: campaign.location,
+        });
+        setIsUpdateModalOpen(true);
+    };
+
+    const handleUpdateSubmit = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            await axios.put(
+                `${process.env.NEXT_PUBLIC_API_BASE_URL}/campaigns/${selectedCampaign._id}`,
+                updateFormData,
+                { headers: { Authorization: `Bearer ${token}` } }
+            );
+            setIsUpdateModalOpen(false);
+            await fetchCampaigns();
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: 'Campaign updated successfully'
+            });
+        } catch (error) {
+            console.error('Error updating campaign:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: error.response?.data?.error || 'Failed to update campaign'
             });
         }
     };
@@ -169,6 +203,12 @@ const Campaignrequest = () => {
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent align="end">
                                         <DropdownMenuItem
+                                            onClick={() => handleUpdateClick(campaign)}
+                                            className="cursor-pointer"
+                                        >
+                                            Update Campaign
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem
                                             onClick={() => updateStatus(campaign._id, 'Active')}
                                             className="cursor-pointer"
                                         >
@@ -187,6 +227,53 @@ const Campaignrequest = () => {
                     ))}
                 </TableBody>
             </Table>
+
+            <Dialog open={isUpdateModalOpen} onOpenChange={setIsUpdateModalOpen}>
+                <DialogContent>
+                    <DialogHeader>
+                        <DialogTitle>Update Campaign</DialogTitle>
+                    </DialogHeader>
+                    <div className="grid gap-4 py-4">
+                        <div className="grid gap-2">
+                            <label>Title</label>
+                            <Input
+                                value={updateFormData.title}
+                                onChange={(e) => setUpdateFormData({...updateFormData, title: e.target.value})}
+                            />
+                        </div>
+                        <div className="grid gap-2">
+                            <label>Category</label>
+                            <Input
+                                value={updateFormData.category}
+                                onChange={(e) => setUpdateFormData({...updateFormData, category: e.target.value})}
+                            />
+                        </div>
+                        <div className="grid gap-2">
+                            <label>Goal Amount</label>
+                            <Input
+                                type="number"
+                                value={updateFormData.goal_amount}
+                                onChange={(e) => setUpdateFormData({...updateFormData, goal_amount: e.target.value})}
+                            />
+                        </div>
+                        <div className="grid gap-2">
+                            <label>Location</label>
+                            <Input
+                                value={updateFormData.location}
+                                onChange={(e) => setUpdateFormData({...updateFormData, location: e.target.value})}
+                            />
+                        </div>
+                    </div>
+                    <DialogFooter>
+                        <Button variant="outline" onClick={() => setIsUpdateModalOpen(false)}>
+                            Cancel
+                        </Button>
+                        <Button onClick={handleUpdateSubmit}>
+                            Update
+                        </Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
         </div>
     );
 };

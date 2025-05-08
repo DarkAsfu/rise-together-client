@@ -38,6 +38,7 @@ const Page = () => {
                 city: '',
                 postal_code: ''
             },
+            about: '',
             purpose: '',
             goals: '',
             attachments: []
@@ -168,7 +169,15 @@ const Page = () => {
                                     </div>
                                 </>
                             )}
-
+                            <div>
+                                <Label>About *</Label>
+                                <Textarea
+                                    {...register("about", { required: "About is required" })}
+                                    className="mt-1"
+                                    rows={4}
+                                />
+                                {errors.about && <p className="text-red-500 text-sm mt-1">{errors.about.message}</p>}
+                            </div>
                             <div>
                                 <Label>Verification Type *</Label>
                                 <select
@@ -218,7 +227,6 @@ const Page = () => {
                                 />
                                 {errors.location?.postal_code && <p className="text-red-500 text-sm mt-1">{errors.location.postal_code.message}</p>}
                             </div>
-
                             <div>
                                 <Label>Purpose *</Label>
                                 <Textarea

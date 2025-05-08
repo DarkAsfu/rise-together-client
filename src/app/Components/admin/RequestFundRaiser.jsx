@@ -205,7 +205,7 @@ const RequestFundRaiser = () => {
             <DialogTitle>Fundraiser Request Details</DialogTitle>
           </DialogHeader>
           {selectedRequest && (
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4">
               <div>
                 <h3 className="font-semibold">User Information</h3>
                 <p>Name: {selectedRequest.user_id.name}</p>
@@ -225,6 +225,10 @@ const RequestFundRaiser = () => {
                 <h3 className="font-semibold">Location</h3>
                 <p>City: {selectedRequest.location.city}</p>
                 <p>Address: {selectedRequest.location.address}</p>
+              </div>
+              <div className="col-span-2">
+                <h3 className="font-semibold">Fundraiser Information</h3>
+                <p>About: {selectedRequest.about}</p>
               </div>
               <div className="col-span-2">
                 <h3 className="font-semibold">Campaign Information</h3>
