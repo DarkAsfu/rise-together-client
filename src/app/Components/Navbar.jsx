@@ -18,8 +18,8 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+  DropdownMenuTrigger
+} from '@/components/ui/dropdown-menu'
 
 const featuredCampaigns = [
   {
@@ -42,7 +42,7 @@ const featuredCampaigns = [
   }
 ]
 
-export default function Navbar() {
+export default function Navbar () {
   const { user, logout } = useAuth()
   const pathname = usePathname()
   const [headerOpen, setHeaderOpen] = useState(false)
@@ -93,7 +93,7 @@ export default function Navbar() {
                   <X />
                 </button>
                 <Link href='/'>
-                  <Image src={isScrolled ? logo : logo1} alt='logo' width={150} height={100} />
+                  <Image src={logo} alt='logo' width={150} height={100} />
                 </Link>
               </div>
               <div className='flex justify-between pt-2'>
@@ -132,15 +132,44 @@ export default function Navbar() {
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        href='/signin'
-                        className='relative flex items-center gap-2 max-w-max after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
-                      >
-                        Sign In
-                      </Link>
+                      {user && (
+                     
+                            <Link href="/dashboard"><Avatar>
+                            <AvatarImage
+                              className='cursor-pointer'
+                              src={`https://ui-avatars.com/api/?name=${user.name}&background=random`}
+                              alt={user.name}
+                            />
+                            <AvatarFallback>
+                              {user.name
+                                .split(' ')
+                                .map(name => name[0])
+                                .join('')
+                                .slice(0, 2)
+                                .toUpperCase()}
+                            </AvatarFallback>
+                          </Avatar></Link>
+                      )}
                     </li>
                     <li>
-                      <Link href='/donate'>
+                      {!user ? (
+                        <Link
+                          href='/signin'
+                          className='relative flex items-center gap-2 max-w-max after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
+                        >
+                          Sign In
+                        </Link>
+                      ) : (
+                        <button
+                          onClick={logout}
+                          className='relative flex items-center gap-2 max-w-max after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
+                        >
+                          Logout
+                        </button>
+                      )}
+                    </li>
+                    <li>
+                      <Link href='#donations'>
                         <Button>Donate Now</Button>
                       </Link>
                     </li>
@@ -155,30 +184,42 @@ export default function Navbar() {
           href='/'
           className='text-primary text-2xl font-bold justify-self-end md:justify-self-center'
         >
-          <Image src={isScrolled ? logo : logo1} alt='logo' width={150} height={100} />
+          <Image
+            src={isScrolled ? logo : logo1}
+            alt='logo'
+            width={150}
+            height={100}
+          />
         </Link>
 
-        <div className='flex items-center justify-self-end gap-3'>
+        <div className='hidden md:flex items-center justify-self-end gap-3'>
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger>
                 <Avatar>
-                  <AvatarImage className="cursor-pointer" src={`https://ui-avatars.com/api/?name=${user.name}&background=random`} alt={user.name} />
+                  <AvatarImage
+                    className='cursor-pointer'
+                    src={`https://ui-avatars.com/api/?name=${user.name}&background=random`}
+                    alt={user.name}
+                  />
                   <AvatarFallback>
-                    {user.name.split(' ').map(name => name[0]).join('').slice(0, 2).toUpperCase()}
+                    {user.name
+                      .split(' ')
+                      .map(name => name[0])
+                      .join('')
+                      .slice(0, 2)
+                      .toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 <DropdownMenuItem>
-                  <Link href="/dashboard">Dashboard</Link>
+                  <Link href='/dashboard'>Dashboard</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link href="/dashboard/profile">Profile</Link>
+                  <Link href='/dashboard/profile'>Profile</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={logout}>
-                  Logout
-                </DropdownMenuItem>
+                <DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
@@ -190,7 +231,7 @@ export default function Navbar() {
             </Link>
           )}
           <Link
-            href='/'
+            href='#donations'
             className='hidden md:block group relative cursor-pointer p-2 w-40 border bg-white rounded-full overflow-hidden text-black text-center font-semibold'
           >
             <span className='translate-x-1 group-hover:translate-x-12 group-hover:opacity-0 transition-all duration-300 inline-block'>

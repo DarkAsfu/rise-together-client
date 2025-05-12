@@ -9,6 +9,7 @@ const Campaigns = () => {
   console.log(campaigns);
   return (
     <div
+      id="donations"
       className=' relative mt-10 md:mt-0'
       style={{
         backgroundImage: `url('/servicebg.png')`, // ✅ direct path

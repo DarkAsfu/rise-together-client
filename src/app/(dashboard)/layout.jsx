@@ -19,7 +19,8 @@ import {
   UserRoundCog,
   UserSquare,
   List,
-  CornerDownLeftIcon
+  CornerDownLeftIcon,
+  HandCoinsIcon
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
@@ -79,6 +80,16 @@ const DashboardLayout = ({ children }) => {
         label: 'Fund Raiser Request',
         icon: UserSquare,
         href: '/dashboard/fund-raiser-request'
+      },
+      {
+        label: 'All Donations',
+        icon: HandHeart,
+        href: '/dashboard/all-donations'
+      },
+      {
+        label: 'Withdraw Requests',
+        icon: HandCoinsIcon,
+        href: '/dashboard/withdraw-requests'
       }
     ],
     'Campaign Creator': [
@@ -93,9 +104,24 @@ const DashboardLayout = ({ children }) => {
         href: '/dashboard/my-campaigns'
       },
       {
-        label: 'Reports',
+        label: 'My Payment Info',
+        icon : UserRoundCog,
+        href: '/dashboard/my-payment-info'
+      },
+      {
+        label: 'Payment Info',
+        icon:  FileSpreadsheet,
+        href: '/dashboard/payment-info'
+      },
+      {
+        label: 'Withdraw Request',
+        icon: HandCoinsIcon,
+        href: '/dashboard/withdraw-request'
+      },
+      {
+        label: 'Withdraws Request Status',
         icon: FileSpreadsheet,
-        href: '/dashboard/reports'
+        href: '/dashboard/withdraw-request-status'
       }
     ],
     Volunteer: [

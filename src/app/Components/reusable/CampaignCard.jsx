@@ -73,28 +73,11 @@ const CampaignCard = ({ campaigns = [] }) => {
                     disabled
                     className='cursor-default'
                   />
-                  <div
-                    className='absolute -top-8 transition-opacity duration-200'
-                    style={{
-                      left: `${
-                        (campaign.current_amount / campaign.goal_amount) * 100
-                      }%`,
-                      transform: 'translateX(-33%)'
-                    }}
-                  >
-                    <div className='bg-primary text-white text-sm px-3 py-1.5 rounded-full shadow-md'>
-                      {Math.round(
-                        (campaign.current_amount / campaign.goal_amount) * 100
-                      )}
-                      %
-                      <div className='absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-primary'></div>
-                    </div>
-                  </div>
                 </div>
                 <div className='flex justify-between'>
                   <h3 className='text-[13px] text-[#777777] font-semibold'>
                     Raised:{' '}
-                    <span className='text-primary'>
+                    <span className={`${(campaign.current_amount >= campaign.goal_amount) ? 'text-green-500' : 'text-primary'}`}>
                       {campaign.current_amount}BDT
                     </span>
                   </h3>
@@ -102,6 +85,12 @@ const CampaignCard = ({ campaigns = [] }) => {
                     Goal:{' '}
                     <span className='text-primary'>
                       {campaign.goal_amount}BDT
+                    </span>
+                  </h3>
+                  <h3 className='text-[13px] text-[#777777] font-semibold'>
+                    Progress:{' '}
+                    <span className={`${(campaign.current_amount >= campaign.goal_amount) ? 'text-green-500 animate-pulse' : 'text-primary'}`}>
+                      {Math.round((campaign.current_amount / campaign.goal_amount) * 100)}%
                     </span>
                   </h3>
                 </div>

@@ -115,7 +115,13 @@ const MyCampaign = () => {
                             <TableCell className="text-right">${campaign.current_amount}</TableCell>
                             <TableCell>{campaign.location}</TableCell>
                             <TableCell>
-                                <Badge variant={campaign.status === 'Draft' ? 'secondary' : 'success'}>
+                                <Badge 
+                                    className={`${
+                                        campaign.status === 'Active' ? 'bg-primary text-white' :
+                                        campaign.status === 'Completed' ? 'bg-blue-500 text-white' : ''
+                                    }`}
+                                    variant={campaign.status === 'Draft' ? 'secondary' : 'success'}
+                                >
                                     {campaign.status}
                                 </Badge>
                             </TableCell>
