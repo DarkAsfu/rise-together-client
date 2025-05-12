@@ -10,7 +10,6 @@ const MyPaymentsInfo = () => {
     useEffect(() => {
         const fetchPaymentInfo = async () => {
             try {
-                // Replace with your actual API endpoint and token
                 const token = localStorage.getItem('token');
                 const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/withdrawals/payment-info`, {
                     headers: { Authorization: `Bearer ${token}` }
@@ -23,12 +22,22 @@ const MyPaymentsInfo = () => {
             }
         };
 
-        fetchPaymentInfo();
+        // Wrap the fetchPaymentInfo call in a try-catch to handle localStorage errors
+        try {
+            fetchPaymentInfo();
+        } catch (err) {
+            setError('Failed to access local storage');
+            setLoading(false);
+        }
     }, []);
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div className="text-red-500">{error}</div>;
     if (!paymentInfo) return <div>No payment information available</div>;
+
+    // Safely access nested properties
+    const bankDetails = paymentInfo?.bank_details || {};
+    const mobileDetails = paymentInfo?.mobile_banking || {};
 
     return (
         <div className="p-4">
@@ -37,43 +46,43 @@ const MyPaymentsInfo = () => {
                 <div className="mb-6">
                     <h3 className="text-xl font-semibold mb-2">Account Details</h3>
                     <div className="grid grid-cols-2 gap-4">
-                        {paymentInfo.payment_type === 'BANK' && (
+                        {paymentInfo?.payment_type === 'BANK' && (
                             <>
                                 <div>
                                     <p className="font-medium">Bank Name</p>
-                                    <p>{paymentInfo.bank_details.bank_name}</p>
+                                    <p>{bankDetails.bank_name || 'N/A'}</p>
                                 </div>
                                 <div>
                                     <p className="font-medium">Account Holder</p>
-                                    <p>{paymentInfo.bank_details.account_holder_name}</p>
+                                    <p>{bankDetails.account_holder_name || 'N/A'}</p>
                                 </div>
                                 <div>
                                     <p className="font-medium">Account Number</p>
-                                    <p>{paymentInfo.bank_details.account_number}</p>
+                                    <p>{bankDetails.account_number || 'N/A'}</p>
                                 </div>
                                 <div>
                                     <p className="font-medium">Branch Name</p>
-                                    <p>{paymentInfo.bank_details.branch_name}</p>
+                                    <p>{bankDetails.branch_name || 'N/A'}</p>
                                 </div>
                                 <div>
                                     <p className="font-medium">Routing Number</p>
-                                    <p>{paymentInfo.bank_details.routing_number}</p>
+                                    <p>{bankDetails.routing_number || 'N/A'}</p>
                                 </div>
                             </>
                         )}
-                        {paymentInfo.payment_type !== 'BANK' && (
+                        {paymentInfo?.payment_type !== 'BANK' && (
                             <>
                                 <div>
                                     <p className="font-medium">Provider</p>
-                                    <p>{paymentInfo.mobile_banking.provider}</p>
+                                    <p>{mobileDetails.provider || 'N/A'}</p>
                                 </div>
                                 <div>
                                     <p className="font-medium">Account Type</p>
-                                    <p>{paymentInfo.mobile_banking.account_type}</p>
+                                    <p>{mobileDetails.account_type || 'N/A'}</p>
                                 </div>
                                 <div>
                                     <p className="font-medium">Account Number</p>
-                                    <p>{paymentInfo.mobile_banking.account_number}</p>
+                                    <p>{mobileDetails.account_number || 'N/A'}</p>
                                 </div>
                             </>
                         )}
@@ -83,15 +92,15 @@ const MyPaymentsInfo = () => {
                     <div className="grid grid-cols-2 gap-4">
                         <div>
                             <p className="font-medium">Status</p>
-                            <p>{paymentInfo.is_verified ? 'Verified' : 'Unverified'}</p>
+                            <p>{paymentInfo?.is_verified ? 'Verified' : 'Unverified'}</p>
                         </div>
                         <div>
                             <p className="font-medium">Primary Account</p>
-                            <p>{paymentInfo.is_primary ? 'Yes' : 'No'}</p>
+                            <p>{paymentInfo?.is_primary ? 'Yes' : 'No'}</p>
                         </div>
                         <div>
                             <p className="font-medium">Created Date</p>
-                            <p>{new Date(paymentInfo.created_at).toLocaleDateString()}</p>
+                            <p>{paymentInfo?.created_at ? new Date(paymentInfo.created_at).toLocaleDateString() : 'N/A'}</p>
                         </div>
                     </div>
                 </div>
