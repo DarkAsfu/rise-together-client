@@ -2,7 +2,7 @@
 
 **Rise Together** is a modern, transparent, and secure crowdfunding platform designed to empower disaster-affected communities in Bangladesh and beyond. Built with the **MERN Stack**, it connects donors, NGOs, local authorities, and victims on a single platform to ensure **rapid fundraising, fund distribution, and community support during natural disasters**.
 
-This repository contains the **frontend** source code built using **React.js**, styled with **Tailwind CSS**, and designed to provide a **seamless user experience** across all devices.
+This repository contains the **frontend** source code built using **Next.js**, styled with **Tailwind CSS**, and designed to provide a **seamless user experience** across all devices.
 
 ---
 
