@@ -1,4 +1,4 @@
-# 🌍 Rise Together (Frontend)
+# 🌍 Rise Together (Online Crowdfunding System)
 
 **Rise Together** is a modern, transparent, and secure crowdfunding platform designed to empower disaster-affected communities in Bangladesh and beyond. Built with the **MERN Stack**, it connects donors, NGOs, local authorities, and victims on a single platform to ensure **rapid fundraising, fund distribution, and community support during natural disasters**.
 
