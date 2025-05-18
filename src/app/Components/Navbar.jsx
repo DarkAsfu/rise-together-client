@@ -169,7 +169,7 @@ export default function Navbar () {
                       )}
                     </li>
                     <li>
-                      <Link href='#donations'>
+                      <Link className='cursor-pointer' href='/#donations'>
                         <Button>Donate Now</Button>
                       </Link>
                     </li>
@@ -231,7 +231,7 @@ export default function Navbar () {
             </Link>
           )}
           <Link
-            href='#donations'
+            href='/#donations'
             className='hidden md:block group relative cursor-pointer p-2 w-40 border bg-white rounded-full overflow-hidden text-black text-center font-semibold'
           >
             <span className='translate-x-1 group-hover:translate-x-12 group-hover:opacity-0 transition-all duration-300 inline-block'>

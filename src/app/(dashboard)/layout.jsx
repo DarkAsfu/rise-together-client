@@ -57,20 +57,20 @@ const DashboardLayout = ({ children }) => {
   const roleRoutes = {
     Admin: [
       {
-        label: 'Users',
+        label: 'User Management',
         icon: Users,
         href: '/dashboard/users'
       },
-      {
-        label: 'Analytics',
-        icon: BarChart3,
-        href: '/dashboard/analytics'
-      },
-      {
-        label: 'User Management',
-        icon: UserCog,
-        href: '/dashboard/user-management'
-      },
+      // {
+      //   label: 'Analytics',
+      //   icon: BarChart3,
+      //   href: '/dashboard/analytics'
+      // },
+      // {
+      //   label: 'User Management',
+      //   icon: UserCog,
+      //   href: '/dashboard/user-management'
+      // },
       {
         label: 'Campaign request',
         icon: CornerDownLeftIcon,

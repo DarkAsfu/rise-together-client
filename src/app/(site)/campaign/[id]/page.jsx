@@ -50,7 +50,7 @@ const Page = () => {
     
     if (!isAuthenticated) {
       localStorage.setItem('redirectAfterLogin', window.location.pathname)
-      router.push('/signin')
+      router.push('/auth/signin')
       return
     }
     setIsModalOpen(true)
