@@ -154,7 +154,7 @@ export default function Navbar () {
                     <li>
                       {!user ? (
                         <Link
-                          href='/signin'
+                          href='/auth/signin'
                           className='relative flex items-center gap-2 max-w-max after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
                         >
                           Sign In
@@ -224,7 +224,7 @@ export default function Navbar () {
             </DropdownMenu>
           ) : (
             <Link
-              href='/signup'
+              href='/auth/signup'
               className='hidden lg:block text-white px-10 py-2 rounded-full bg-primary hover:bg-transparent border-1 border-primary hover:text-primary font-semibold transition-all'
             >
               Sign Up
