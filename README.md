@@ -17,6 +17,7 @@ This repository contains the **frontend** source code built using **Next.js**, s
     - [2. Install Dependencies](#2-install-dependencies)
     - [3. Configure Environment Variables](#3-configure-environment-variables)
     - [4. Run the Development Server](#4-run-the-development-server)
+  - [Test Accounts](#test-accounts)
   - [🔗 Live Site](#-live-site)
   - [🧭 Introduction](#-introduction)
   - [🔍 Key Problems](#-key-problems)
@@ -69,6 +70,21 @@ npm run dev
 The app will be available at [http://localhost:3000](http://localhost:3000).
 
 ---
+
+## Test Accounts
+You can use the following test accounts to log in and explore the platform:
+
+- **Admin**
+  - Email: hello@fund@gmail.com
+  - Password: password123
+
+- **Campaign Creator**
+  - Email: web@gmail.com
+  - Password: 123456
+
+- **Donor**
+  - Email: donor@risetogether.com
+  - Password: password123
 
 ## 🔗 Live Site
 
