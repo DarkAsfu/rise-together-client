@@ -50,8 +50,8 @@ If you want to contribute, first fork this repository to your own GitHub account
 
 ### 2. Clone the Repository
 ```bash
-git clone https://github.com/your-username/rise-together.git
-cd rise-together
+git clone https://github.com/DarkAsfu/rise-together-client
+cd rise-together-client
 ```
 
 ### 3. Install Dependencies
