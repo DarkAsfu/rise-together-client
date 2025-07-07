@@ -6,32 +6,78 @@ This repository contains the **frontend** source code built using **Next.js**, s
 
 ---
 
-## 🔗 Live Site
+## 📌 Table of Contents
 
-👉 [Visit Rise Together](https://rise-together-client.vercel.app/)
+- [🌍 Rise Together (Online Crowdfunding System)](#-rise-together-online-crowdfunding-system)
+  - [📌 Table of Contents](#-table-of-contents)
+  - [🛠️ Installation \& Project Setup](#️-installation--project-setup)
+    - [1. Fork the Repository (Optional)](#1-fork-the-repository-optional)
+    - [2. Clone the Repository](#2-clone-the-repository)
+    - [3. Install Dependencies](#3-install-dependencies)
+    - [4. Configure Environment Variables](#4-configure-environment-variables)
+    - [5. Run the Development Server](#5-run-the-development-server)
+  - [🧭 Introduction](#-introduction)
+  - [🔍 Key Problems](#-key-problems)
+  - [✅ Solution](#-solution)
+  - [🌟 Unique Features](#-unique-features)
+  - [🔧 System Overview](#-system-overview)
+  - [💞 Social Impact](#-social-impact)
+  - [⚙️ Tech Stack](#️-tech-stack)
+    - [Frontend:](#frontend)
+  - [✨ Frontend Features](#-frontend-features)
+  - [🖼️ Screenshots](#️-screenshots)
+    - [🏠 Homepage](#-homepage)
+    - [📋 Campaign Details Page](#-campaign-details-page)
+    - [💳 Donation Modal](#-donation-modal)
+    - [🧍 Admin Dashboard](#-admin-dashboard)
+    - [🛠️ Fundraiser Panel](#️-fundraiser-panel)
+  - [🛠️ Installation](#️-installation)
+    - [1. Prerequisites](#1-prerequisites)
+    - [2. Clone the Repository](#2-clone-the-repository-1)
+    - [3. Install Dependencies](#3-install-dependencies-1)
+    - [4. Environment Variables](#4-environment-variables)
+    - [5. Run the Development Server](#5-run-the-development-server-1)
+    - [6. Build for Production (Optional)](#6-build-for-production-optional)
 
 ---
 
-## 📌 Table of Contents
+## 🛠️ Installation & Project Setup
 
-- [Introduction](#introduction)
-- [Key Problems](#key-problems)
-- [Solution](#solution)
-- [Unique Features](#unique-features)
-- [System Overview](#system-overview)
-- [Social Impact](#social-impact)
-- [Tech Stack](#tech-stack)
-- [Frontend Features](#frontend-features)
-- [Screenshots](#screenshots)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Developed By](#developed-by)
+Follow these steps to set up the project locally from GitHub:
+
+### 1. Fork the Repository (Optional)
+If you want to contribute, first fork this repository to your own GitHub account.
+
+### 2. Clone the Repository
+```bash
+git clone https://github.com/your-username/rise-together.git
+cd rise-together
+```
+
+### 3. Install Dependencies
+```bash
+npm install
+```
+
+### 4. Configure Environment Variables
+Create a `.env` file in the root directory and add the required environment variables:
+```env
+NEXT_PUBLIC_API_BASE_URL=http://localhost:5000/api
+NEXT_PUBLIC_IMGBB_KEY=6596fff948fdca8b4049937fcd8c96a3
+```
+
+### 5. Run the Development Server
+```bash
+npm run dev
+```
+The app will be available at [http://localhost:3000](http://localhost:3000).
+
 
 ---
 
 ## 🧭 Introduction
 
-> “**Rise Together** bridges the gap between donors, organizations, and disaster-affected communities.”
+> "**Rise Together** bridges the gap between donors, organizations, and disaster-affected communities."
 
 In the face of natural disasters, communities often lack a unified, transparent platform for raising and distributing relief funds. **Rise Together** addresses these challenges by providing a secure, scalable, and transparent system that ensures aid reaches those who need it the most—quickly and reliably.
 
@@ -148,5 +194,47 @@ In the face of natural disasters, communities often lack a unified, transparent 
 ### 🛠️ Fundraiser Panel
 ![image](https://github.com/user-attachments/assets/d742bff5-dba8-48de-bede-532370773d7b)
 ![image](https://github.com/user-attachments/assets/7a6a144f-2452-463b-9518-7998bc389502)
+
+---
+
+## 🛠️ Installation
+
+Follow these steps to set up and run the project locally:
+
+### 1. Prerequisites
+- [Node.js](https://nodejs.org/) (v16 or higher recommended)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- (Optional) [Git](https://git-scm.com/) for cloning the repository
+
+### 2. Clone the Repository
+```bash
+git clone https://github.com/your-username/rise-together.git
+cd rise-together
+```
+
+### 3. Install Dependencies
+```bash
+npm install
+```
+
+### 4. Environment Variables
+Create a `.env.local` file in the root directory and add the required environment variables. Example:
+```env
+NEXT_PUBLIC_API_URL=https://your-api-url.com
+# Add other environment variables as needed
+```
+
+### 5. Run the Development Server
+```bash
+npm run dev
+```
+
+The app should now be running at [http://localhost:3000](http://localhost:3000).
+
+### 6. Build for Production (Optional)
+```bash
+npm run build
+npm start
+```
 
 
