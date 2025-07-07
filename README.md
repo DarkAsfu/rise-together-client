@@ -1,5 +1,7 @@
 # 🌍 Rise Together (Online Crowdfunding System)
 
+[![Next.js](https://img.shields.io/badge/Next.js-15.2.2-blue?logo=next.js)](https://nextjs.org/) [![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-4.1.4-38bdf8?logo=tailwindcss)](https://tailwindcss.com/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 **Rise Together** is a modern, transparent, and secure crowdfunding platform designed to empower disaster-affected communities in Bangladesh and beyond. Built with the **MERN Stack**, it connects donors, NGOs, local authorities, and victims on a single platform to ensure **rapid fundraising, fund distribution, and community support during natural disasters**.
 
 This repository contains the **frontend** source code built using **Next.js**, styled with **Tailwind CSS**, and designed to provide a **seamless user experience** across all devices.
@@ -11,16 +13,16 @@ This repository contains the **frontend** source code built using **Next.js**, s
 - [🌍 Rise Together (Online Crowdfunding System)](#-rise-together-online-crowdfunding-system)
   - [📌 Table of Contents](#-table-of-contents)
   - [🛠️ Installation \& Project Setup](#️-installation--project-setup)
-    - [1. Fork the Repository (Optional)](#1-fork-the-repository-optional)
-    - [2. Clone the Repository](#2-clone-the-repository)
-    - [3. Install Dependencies](#3-install-dependencies)
-    - [4. Configure Environment Variables](#4-configure-environment-variables)
-    - [5. Run the Development Server](#5-run-the-development-server)
+    - [1. Clone the Repository](#1-clone-the-repository)
+    - [2. Install Dependencies](#2-install-dependencies)
+    - [3. Configure Environment Variables](#3-configure-environment-variables)
+    - [4. Run the Development Server](#4-run-the-development-server)
+  - [🔗 Live Site](#-live-site)
   - [🧭 Introduction](#-introduction)
   - [🔍 Key Problems](#-key-problems)
   - [✅ Solution](#-solution)
   - [🌟 Unique Features](#-unique-features)
-  - [🔧 System Overview](#-system-overview)
+  - [�� System Overview](#-system-overview)
   - [💞 Social Impact](#-social-impact)
   - [⚙️ Tech Stack](#️-tech-stack)
     - [Frontend:](#frontend)
@@ -31,47 +33,46 @@ This repository contains the **frontend** source code built using **Next.js**, s
     - [💳 Donation Modal](#-donation-modal)
     - [🧍 Admin Dashboard](#-admin-dashboard)
     - [🛠️ Fundraiser Panel](#️-fundraiser-panel)
-  - [🛠️ Installation](#️-installation)
-    - [1. Prerequisites](#1-prerequisites)
-    - [2. Clone the Repository](#2-clone-the-repository-1)
-    - [3. Install Dependencies](#3-install-dependencies-1)
-    - [4. Environment Variables](#4-environment-variables)
-    - [5. Run the Development Server](#5-run-the-development-server-1)
-    - [6. Build for Production (Optional)](#6-build-for-production-optional)
+  - [🗂️ Project Structure](#️-project-structure)
+  - [🤝 Contributing](#-contributing)
+  - [📝 License](#-license)
 
 ---
 
 ## 🛠️ Installation & Project Setup
 
-Follow these steps to set up the project locally from GitHub:
+Set up the project locally in a few simple steps:
 
-### 1. Fork the Repository (Optional)
-If you want to contribute, first fork this repository to your own GitHub account.
 
-### 2. Clone the Repository
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/DarkAsfu/rise-together-client
 cd rise-together-client
 ```
 
-### 3. Install Dependencies
+### 2. Install Dependencies
 ```bash
 npm install
 ```
 
-### 4. Configure Environment Variables
+### 3. Configure Environment Variables
 Create a `.env` file in the root directory and add the required environment variables:
 ```env
 NEXT_PUBLIC_API_BASE_URL=http://localhost:5000/api
 NEXT_PUBLIC_IMGBB_KEY=6596fff948fdca8b4049937fcd8c96a3
 ```
 
-### 5. Run the Development Server
+### 4. Run the Development Server
 ```bash
 npm run dev
 ```
 The app will be available at [http://localhost:3000](http://localhost:3000).
 
+---
+
+## 🔗 Live Site
+
+👉 [Visit Rise Together](https://rise-together-client.vercel.app/)
 
 ---
 
@@ -116,7 +117,7 @@ In the face of natural disasters, communities often lack a unified, transparent 
 
 ---
 
-## 🔧 System Overview
+## �� System Overview
 
 - 👤 **User Flow:**
   - Register / Login
@@ -135,6 +136,9 @@ In the face of natural disasters, communities often lack a unified, transparent 
   - Launch verified campaign
   - Request withdrawal with proof
   - Admin verifies and approves release of funds
+
+---
+
 ## 💞 Social Impact
 
 - Builds trust between donors and recipients
@@ -150,7 +154,7 @@ In the face of natural disasters, communities often lack a unified, transparent 
 ### Frontend:
 - **Next.js**
 - **Tailwind CSS**
-- **Shadcn Ui**
+- **Shadcn UI**
 - **Axios**
 - **Framer Motion**
 - **SSlCOMMERZ**
@@ -180,16 +184,13 @@ In the face of natural disasters, communities often lack a unified, transparent 
 ### 📋 Campaign Details Page
 ![screencapture-rise-together-client-vercel-app-campaign-68176df68b21964d84eee49a-2025-05-17-22_34_50](https://github.com/user-attachments/assets/42e10694-12f0-4a24-b12d-6af727e1b0b4)
 
-
 ### 💳 Donation Modal
 ![image](https://github.com/user-attachments/assets/7eb7bc63-f9c7-46e0-9485-ba72472cda03)
 ![image](https://github.com/user-attachments/assets/9216c328-e725-4b9b-b534-84fe6a0f5bbb)
 
-
 ### 🧍 Admin Dashboard
 ![image](https://github.com/user-attachments/assets/880e9fb5-c6fe-4232-a870-f005e426c9d6)
 ![image](https://github.com/user-attachments/assets/7dfb68dc-3c54-4406-b726-0c98d60345b6)
-
 
 ### 🛠️ Fundraiser Panel
 ![image](https://github.com/user-attachments/assets/d742bff5-dba8-48de-bede-532370773d7b)
@@ -197,44 +198,33 @@ In the face of natural disasters, communities often lack a unified, transparent 
 
 ---
 
-## 🛠️ Installation
+## 🗂️ Project Structure
 
-Follow these steps to set up and run the project locally:
-
-### 1. Prerequisites
-- [Node.js](https://nodejs.org/) (v16 or higher recommended)
-- [npm](https://www.npmjs.com/) (comes with Node.js)
-- (Optional) [Git](https://git-scm.com/) for cloning the repository
-
-### 2. Clone the Repository
-```bash
-git clone https://github.com/your-username/rise-together.git
-cd rise-together
+```
+Rise Together/
+  ├─ components.json
+  ├─ eslint.config.mjs
+  ├─ jsconfig.json
+  ├─ next.config.mjs
+  ├─ package-lock.json
+  ├─ package.json
+  ├─ postcss.config.mjs
+  ├─ public/
+  ├─ README.md
+  ├─ src/
+  └─ ...
 ```
 
-### 3. Install Dependencies
-```bash
-npm install
-```
+---
 
-### 4. Environment Variables
-Create a `.env.local` file in the root directory and add the required environment variables. Example:
-```env
-NEXT_PUBLIC_API_URL=https://your-api-url.com
-# Add other environment variables as needed
-```
+## 🤝 Contributing
 
-### 5. Run the Development Server
-```bash
-npm run dev
-```
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes. For major changes, please open an issue first to discuss what you would like to change.
 
-The app should now be running at [http://localhost:3000](http://localhost:3000).
+---
 
-### 6. Build for Production (Optional)
-```bash
-npm run build
-npm start
-```
+## 📝 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 
