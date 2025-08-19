@@ -109,26 +109,35 @@ export default function Navbar () {
                     </li>
                     <li>
                       <Link
-                        href='/campaigns'
+                        href='/about-us'
+                        className='relative flex items-center gap-2 max-w-max after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
+                      >
+                        About Us
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href='/campaign'
                         className='relative flex items-center gap-2 max-w-max after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
                       >
                         Campaigns
                       </Link>
                     </li>
-                    <li>
-                      <Link
-                        href='/start-campaign'
-                        className='relative flex items-center gap-2 max-w-max after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
-                      >
-                        Start a Campaign
-                      </Link>
-                    </li>
+                    
                     <li>
                       <Link
                         href='/how-it-works'
                         className='relative flex items-center gap-2 max-w-max after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
                       >
                         How it Works
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href='/contact-us'
+                        className='relative flex items-center gap-2 max-w-max after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-white after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100'
+                      >
+                       Contact Us
                       </Link>
                     </li>
                     <li>

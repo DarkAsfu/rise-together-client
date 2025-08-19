@@ -182,6 +182,7 @@ const Page = () => {
             <SelectItem value='admin'>Admin</SelectItem>
             <SelectItem value='donor'>Donor</SelectItem>
             <SelectItem value='campaign creator'>Campaign Creator</SelectItem>
+            <SelectItem value='volunteer'>Volunteer</SelectItem>
           </SelectContent>
         </Select>
       </div>
