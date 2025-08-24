@@ -25,7 +25,7 @@ const MyRequestInfo = () => {
     const fetchVolunteerData = async () => {
         try {
             setLoading(true);
-            const response = await fetch(`http://localhost:5000/api/volunteer-applications/my-application`, {
+            const response = await fetch(`https://rise-together-tau.vercel.app/api/volunteer-applications/my-application`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'application/json'
@@ -87,7 +87,7 @@ const MyRequestInfo = () => {
     const handleSave = async () => {
         try {
             setUpdating(true);
-            const response = await fetch(`http://localhost:5000/api/volunteer-applications/my-application`, {
+            const response = await fetch(`https://rise-together-tau.vercel.app/api/volunteer-applications/my-application`, {
                 method: 'PATCH',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,

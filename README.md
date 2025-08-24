@@ -59,7 +59,7 @@ npm install
 ### 3. Configure Environment Variables
 Create a `.env` file in the root directory and add the required environment variables:
 ```env
-NEXT_PUBLIC_API_BASE_URL=http://localhost:5000/api
+NEXT_PUBLIC_API_BASE_URL=https://rise-together-tau.vercel.app/api
 NEXT_PUBLIC_IMGBB_KEY=6596fff948fdca8b4049937fcd8c96a3
 ```
 
