@@ -20,7 +20,10 @@ import {
   UserSquare,
   List,
   CornerDownLeftIcon,
-  HandCoinsIcon
+  HandCoinsIcon,
+  Info,
+  NotebookPen,
+  BookCheck
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
@@ -90,6 +93,21 @@ const DashboardLayout = ({ children }) => {
         label: 'Withdraw Requests',
         icon: HandCoinsIcon,
         href: '/dashboard/withdraw-requests'
+      },
+      {
+        label: 'Volunteer Request',
+        icon: UserSquare,
+        href: '/dashboard/volunteer-request'
+      },
+      {
+        label: 'Create Volunteer Task',
+        icon: NotebookPen,
+        href: '/dashboard/create-volunteer-task'
+      },
+      {
+        label: 'Volunteer Task Assignment',
+        icon: BookCheck,
+        href: '/dashboard/volunteer-task-assignment'
       }
     ],
     'Campaign Creator': [
@@ -125,15 +143,15 @@ const DashboardLayout = ({ children }) => {
       }
     ],
     Volunteer: [
+      // {
+      //   label: 'Available Campaigns',
+      //   icon: HandHeart,
+      //   href: '/dashboard/available-campaigns'
+      // },
       {
-        label: 'Available Campaigns',
-        icon: HandHeart,
-        href: '/dashboard/available-campaigns'
-      },
-      {
-        label: 'My Activities',
+        label: 'My Tasks',
         icon: CalendarCheck,
-        href: '/dashboard/my-activities'
+        href: '/dashboard/my-tasks'
       }
     ],
     Donor: [
@@ -146,6 +164,16 @@ const DashboardLayout = ({ children }) => {
         label: 'Request for Fundraiser',
         icon: CalendarCheck,
         href: '/dashboard/request-for-fundraiser'
+      },
+      {
+        label: 'Request for Volunteer',
+        icon: UserSquare,
+        href: '/dashboard/request-for-volunteer'
+      },
+      {
+        label: 'My request info',
+        icon: Info,
+        href: '/dashboard/my-request-info'
       }
     ]
   }

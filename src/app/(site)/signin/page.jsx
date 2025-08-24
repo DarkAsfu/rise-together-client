@@ -45,11 +45,11 @@ const Page = () => {
 
     return (
         <div className="flex items-center justify-center min-h-screen">
-            <div className="grid lg:grid-cols-2 items-center w-full max-w-[1200px] gap-8 px-2 md:px-8 border-0 xl:border-1 xl:border-t rounded-lg shadow-none xl:shadow-xl">
-                <div className="">
+            <div className="grid lg:grid-cols-2 items-center w-full max-w-[1200px] gap-8 px-2 md:px-8 border-0 xl:border-1 xl:border-t rounded-lg shadow-none xl:shadow-xl my-10">
+                <div className="my-10">
                     <Card className="w-full border-none shadow-none">
                         <CardHeader>
-                            <CardTitle className="text-2xl font-bold">Sign In</CardTitle>
+                            <CardTitle className="text-2xl font-bold">Sign I</CardTitle>
                             <CardDescription>Welcome back! Please login to your account.</CardDescription>
                         </CardHeader>
                         <CardContent>

@@ -70,7 +70,7 @@ const Page = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen">
+        <div className="my-10 flex items-center justify-center min-h-screen">
             <div className="grid lg:grid-cols-2 items-center w-full max-w-[1200px] gap-8 p-2 md:p-8 border-0 xl:border-1 xl:border-t rounded-lg shadow-none xl:shadow-xl">
                 <div className="">
                     <Card className="w-full border-none shadow-none">

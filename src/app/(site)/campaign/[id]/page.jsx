@@ -19,6 +19,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Textarea } from "@/components/ui/textarea"
+import SectionBanner from '@/app/Components/reusable/SectionBanner'
 
 const Page = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
@@ -114,8 +115,9 @@ const Page = () => {
 
   return (
     <div>
-      <div className='max-w-5xl mx-auto flex my-10 justify-between px-2'>
-        <div className='w-[64%]'>
+      <SectionBanner title={"Campaign Details"} />
+      <div className='max-w-5xl mx-auto md:flex my-10 justify-between px-2'>
+        <div className='md:w-[64%]'>
           <style jsx global>{`
             .swiper-button-next,
             .swiper-button-prev {
@@ -221,7 +223,7 @@ const Page = () => {
             </div>
           </div>
         </div>
-        <div className='w-[32%]'>
+        <div className='md:w-[32%]'>
           <div className='bg-[#F3F4F8] p-6 rounded-md'>
             {isGoalReached ? (
               <div className='text-center text-green-600 font-semibold mb-2'>
